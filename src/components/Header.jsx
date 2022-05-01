@@ -9,8 +9,8 @@ function Header() {
           <div className="header__logo">
             <img width="38" src={logo} alt="Pizza logo" />
             <div>
-              <h1>React Pizza</h1>
-              <p>сама смачна піца у всесвіті</p>
+              <h1>Owl Pizza</h1>
+              <p>сама смачна піца в країні</p>
             </div>
           </div>
           <div className="header__cart">

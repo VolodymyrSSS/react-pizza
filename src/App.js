@@ -30,19 +30,19 @@ function App() {
                     fill="#2C2C2C"
                   />
                 </svg>
-                <b>Сортировка по:</b>
-                <span>популярности</span>
+                <b>Сортування по:</b>
+                <span>популярності</span>
               </div>
               <div className="sort__popup">
                 <ul>
-                  <li className="active">популярности</li>
-                  <li>цене</li>
-                  <li>алфавиту</li>
+                  <li className="active">популярності</li>
+                  <li>ціні</li>
+                  <li>алфавіту</li>
                 </ul>
               </div>
             </div>
           </div>
-          <h2 className="content__title">Все пиццы</h2>
+          <h2 className="content__title">Всі види піци</h2>
           <div className="content__items">
             <div className="pizza-block">
   <img
@@ -50,11 +50,11 @@ function App() {
     src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
     alt="Pizza"
   />
-  <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+  <h4 className="pizza-block__title">Чізбургер-піца</h4>
   <div className="pizza-block__selector">
     <ul>
-      <li className="active">тонкое</li>
-      <li>традиционное</li>
+      <li className="active">тоненьке</li>
+      <li>стандартне</li>
     </ul>
     <ul>
       <li className="active">26 см.</li>
