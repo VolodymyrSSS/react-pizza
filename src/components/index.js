@@ -1,8 +1,9 @@
 import Header from './Header';
 import Button from './Button';
 import Categories from './Categories';
+import SortPopup from './SortPopup';
 
-export {Header, Button, Categories};
+export {Header, Button, Categories, SortPopup};
 
 // just to combine import and export in the same time, do:
 // export { default as Header } from './Header'
