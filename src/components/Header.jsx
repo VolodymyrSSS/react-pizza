@@ -5,7 +5,7 @@ import Button from './Button';
 
 function Header() {
     return (
-        <div className="header">
+      <div className="header">
         <div className="container">
           <Link to="/">
             <div className="header__logo">
@@ -33,7 +33,7 @@ function Header() {
                     stroke="white"
                     strokeWidth="1.8"
                     strokeLinecap="round"
-                  strokeLinejoin="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M14.3333 16.3333C15.0697 16.3333 15.6667 15.7364 15.6667 15C15.6667 14.2636 15.0697 13.6667 14.3333 13.6667C13.597 13.6667 13 14.2636 13 15C13 15.7364 13.597 16.3333 14.3333 16.3333Z"
@@ -47,13 +47,12 @@ function Header() {
                     stroke="white"
                     strokeWidth="1.8"
                     strokeLinecap="round"
-                  strokeLinejoin="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
                 <span>3</span>
               </Button>
             </Link>
-            
           </div>
         </div>
       </div> 
