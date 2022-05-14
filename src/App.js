@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import { Header } from './components';
 import { Home, Cart } from './pages';
@@ -10,11 +11,21 @@ function App() {
   const [pizzas, setPizzas] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('http://localhost:3000/db.json')
-      .then((resp) => resp.json())
-      .then((json) => {
-        setPizzas(json.pizzas);
-      });
+    // using axios
+    axios.get('http://localhost:3000/db.json').then(({ data }) => {
+      console.log('Axios' - data);
+      setPizzas(data.pizzas);
+    });
+
+    // using fetch
+    // fetch('http://localhost:3000/db.json')
+    //   .then((resp) => {
+    //      console.log('Fetch' - resp);
+    //      return resp.json()
+    //    })
+    //   .then((json) => {
+    //     setPizzas(json.pizzas);
+    //   });
   }, []);
 
   return (
