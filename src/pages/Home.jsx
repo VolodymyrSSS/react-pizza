@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Categories, SortPopup, PizzaBlock } from '../components';
 
@@ -16,7 +17,7 @@ function Home({ items }) {
         />
         <SortPopup items={['популярності', 'ціні', 'алфавіту']}/>
       </div>
-      <h2 className="content__title">Всі види піци</h2>
+      <h2 className="content__title">Наш асортимент</h2>
       <div className="content__items">
         {
           // items.map(obj => <PizzaBlock key={obj.id} name={obj.name} imageUrl={obj.imageUrl} />)
@@ -26,5 +27,10 @@ function Home({ items }) {
     </div>
   )
 }
+
+Home.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
 
 export default Home;
