@@ -15,7 +15,11 @@ function Home({ items }) {
           'В коробці'
           ]} onClickItem={(category) => console.log(category)}
         />
-        <SortPopup items={['популярності', 'ціні', 'алфавіту']}/>
+        <SortPopup items={[
+          {name: 'популярності', type: 'popularity'},
+          {name: 'ціні', type: 'price'},
+          {name: 'алфавіту', type: 'alphabet'} 
+        ]}/>
       </div>
       <h2 className="content__title">Наш асортимент</h2>
       <div className="content__items">
