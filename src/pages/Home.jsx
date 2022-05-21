@@ -25,7 +25,7 @@ function Home({ items }) {
       <div className="content__items">
         {
           // items.map(obj => <PizzaBlock key={obj.id} name={obj.name} imageUrl={obj.imageUrl} />)
-          items.map(obj => <PizzaBlock key={obj.id} {...obj} />)
+          items && items.map(obj => <PizzaBlock key={obj.id} {...obj} />)
         }
       </div>
     </div>
