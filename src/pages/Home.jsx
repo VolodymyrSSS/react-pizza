@@ -1,25 +1,33 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { Categories, SortPopup, PizzaBlock } from '../components';
+import { setCategory } from '../redux/actions/filters';
 
-function Home({ items }) {
+const categories = ['М\'ясні', 'Вегетаріанські', 'Гриль', 'Гострі', 'В коробці'];
+const sortingClassifications = [
+  {name: 'популярності', type: 'popularity'},
+  {name: 'ціні', type: 'price'},
+  {name: 'алфавіту', type: 'alphabet'} 
+];
+
+function Home() {
+  const dispatch = useDispatch();
+  const items = useSelector(({ pizzas }) => pizzas.items);
+  
+  const onSelectCategory = React.useCallback(index => {
+    dispatch(setCategory(index)); 
+  }, [dispatch]);
+
   return (
     <div className="container">
       <div className="content__top">
-        <Categories items={[
-          'М\'ясні',
-          'Вегетаріанські',
-          'Гриль',
-          'Гострі',
-          'В коробці'
-          ]} onClickItem={(category) => console.log(category)}
+        <Categories 
+          items={categories}
+          onClickItem={onSelectCategory}
         />
-        <SortPopup items={[
-          {name: 'популярності', type: 'popularity'},
-          {name: 'ціні', type: 'price'},
-          {name: 'алфавіту', type: 'alphabet'} 
-        ]}/>
+        <SortPopup items={sortingClassifications}/>
       </div>
       <h2 className="content__title">Наш асортимент</h2>
       <div className="content__items">
@@ -33,7 +41,7 @@ function Home({ items }) {
 }
 
 Home.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  items: PropTypes.arrayOf(PropTypes.object),
 };
 
 
