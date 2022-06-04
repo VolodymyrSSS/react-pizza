@@ -1,35 +1,43 @@
-import React, { useState } from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 // React.memo - не допускає лишній ререндер, або робить лише поверхневе порівняння - дивиться тільки за змінaми на саме посилання 'items' та "onClickItem", а не на зміни в 'items' та "onClickItem"
-const Categories = React.memo(function Categories({ items, onClickItem }) {
-  const [activeItem, setActiveItem] = useState(null);
-
-  const onSelectItem = index => {
-    setActiveItem(index);
-    onClickItem(index);
-  };
+const Categories = React.memo(function Categories({ activeCategory, items, onClickCategory }) {
 
   return (
     <div className="categories">
       <ul>
         <li 
-          className={activeItem === null ? "active" : ''}
-          onClick={() => onSelectItem(null)}
+          className={activeCategory === null ? "active" : ''}
+          onClick={() => onClickCategory(null)}
         >
             Усі
         </li>
-        {items && items.map((category, index) => (
+        {items && items.map((name, index) => (
           <li 
-            className={activeItem === index ? "active" : ''}
-            key={`${category}_${index}`} 
-            onClick={() => onSelectItem(index)}
+            className={activeCategory === index ? "active" : ''}
+            key={`${name}_${index}`} 
+            onClick={() => onClickCategory(index)}
           >
-            {category}
+            {name}
           </li>))
         }
       </ul>
     </div>
   )
 });
+
+Categories.propTypes = {
+  // activeCategory: PropTypes.oneOf([PropTypes.number, null]),
+  activeCategory: PropTypes.number,
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onClickCategory: PropTypes.func
+};
+
+Categories.defaultProps = {
+  activeCategory: null,
+  items: [],
+  onClickCategory: () => {}
+}
 
 export default Categories;
