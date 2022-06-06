@@ -6,11 +6,15 @@ export const setLoaded = payload => ({
 });
 
 // по суті - метод для отримання та збереження піц в Редакс
-export const fetchPizzas = () => dispatch => {
+export const fetchPizzas = (sortBy, category) => dispatch => {
     dispatch(setLoaded(false));
 
-    axios.get('http://localhost:3001/pizzas').then(({ data }) => {
-        dispatch(setPizzas(data));
+    axios.get(
+        `http://localhost:3001/pizzas?${
+            category !== null ? `category=${category}`: ''
+        }&_sort=${sortBy.type}&_order=${sortBy.order}`
+      )
+      .then(({ data }) => {dispatch(setPizzas(data));
     });
 };
 
@@ -18,5 +22,5 @@ export const fetchPizzas = () => dispatch => {
 // по суті - метод для збереження піц в Редакс
 export const setPizzas = items => ({
     type: 'SET_PIZZAS',
-    payload: items
+    payload: items,
 });
